@@ -3,7 +3,11 @@ package com.brunoleonardo.examen2bd
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import com.brunoleonardo.examen2bd.BD.DBHandler
+import com.brunoleonardo.examen2bd.BD.Matiere
 import com.brunoleonardo.examen2bd.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +17,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater) // ici on ajoute et initialise la variable
         setContentView(binding.root) // ici on change et déclare le layout
+
+        //initialisation de la base de données
+        val db = DBHandler(this) // ici on ajoute et déclare une variable de type BDHelper
+        db.deleteToutesMatieres()
+
+        db.ajouter(Matiere("Ordinateur et Resseau", 1, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Images Numerique", 1, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Logique de Programation", 1, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Intregation Web 1", 1, 60.0, "WEB")) // ici on ajoute une matière
+
+        db.ajouter(Matiere("Programation Mobile", 2, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Intregation Web 2", 2, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Programation Web 1", 2, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Programation Web 2", 2, 60.0, "WEB")) // ici on ajoute une matière
+
+        db.ajouter(Matiere("Programation Web 3", 3, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Programation Web 4", 3, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Programation Web 5", 3, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Programation Web 6", 3, 60.0, "WEB")) // ici on ajoute une matière
+
+        db.ajouter(Matiere("Programation Web 7", 4, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Programation Web 8", 4, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Programation Web 9", 4, 60.0, "WEB")) // ici on ajoute une matière
+        db.ajouter(Matiere("Programation Web 10", 4, 60.0, "WEB")) // ici on ajoute une matière
+
+
 
         binding.btnSaisirNote.setOnClickListener { // ici on ajoute un listener pour le bouton
             var nom = binding.txtNom.text.toString() // ici on ajoute et déclare une variable de type String
@@ -37,5 +67,22 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.nom_menu, menu) // ici on ajoute et déclare une variable de type Menu
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) { // ici on ajoute une condition
+            R.id.itemInit -> { // ici on ajoute une condition
+                Toast.makeText(this, "Item 1 select", Toast.LENGTH_LONG).show() // ici on ajoute un message
+            }
+            R.id.itemAcceuil -> { // ici on ajoute une condition
+                Toast.makeText(this, "Item 2 select", Toast.LENGTH_LONG).show() // ici on ajoute un message
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

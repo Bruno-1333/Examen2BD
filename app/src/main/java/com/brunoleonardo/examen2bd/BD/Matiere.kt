@@ -1,7 +1,7 @@
 package com.brunoleonardo.examen2bd.BD
 
 // ici on ajoute et déclare une classe et le constructeur
-class Matiere(val id: Int,
+data class Matiere(val id: Int,
               val nomMatiere: String,
               val etape: Int,
               val notePassage: Double,

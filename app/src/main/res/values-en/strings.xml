@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Examen2BD</string>
+    <string name="HinName">Enter your name</string>
+    <string name="btnActivity1">Enter subject grades</string>
+    <string name="msgErreurEtape">Choose a step to continue</string>
+
+    <string-array name="EtapesSpinner">
+        <item>Cxxxxx</item>
+        <item>xxxx 1</item>
+        <item>xxxx 2</item>
+        <item>xxx 3</item>
+        <item>xxx 4</item>
+    </string-array>
+
+</resources>
